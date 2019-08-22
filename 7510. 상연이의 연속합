@@ -1,0 +1,37 @@
+
+#include<iostream>
+using namespace std;
+
+int main() {
+	ios::sync_with_stdio(false);
+	int T; // test case 수 
+	cin >> T;
+	int n;
+	
+	for (int i = 1; i <= T;i++) {
+		cin >> n;
+
+		int p = 1;
+		int count = 0;
+
+		while (p <= n) {
+			int result = 0;
+			for (int i = p; i <= n;i++) {
+				result += i;
+				if (result == n) {
+					count += 1;  // 연속합이 n과 같으면 count 증가
+					break;
+				}
+				if (result >= n)   // 연속합이 n보다 크면 탈출 ( 시간 초과 문제) 
+				break;
+				
+
+			}
+
+			p++;
+		}
+
+		cout << "#"<<i<<" " << count << "\n";
+	}
+	return 0;
+}
